@@ -7,7 +7,7 @@ import {getWords} from 'service/userApi';
 import {getWordStore} from 'src/constants/getNewWords';
 
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   const {words} = await getWords('https://fast-fingers-73cti3dam-amitbudhori07.vercel.app/api/game/words');
   let easyWords = [], mediumWords = [], hardWords = [];
  for (const word of words) {
@@ -31,7 +31,7 @@ export async function getStaticProps() {
     props: { easy: easyWords, medium
       : mediumWords, hard: hardWords }
   }
-}
+} */
 
 function Game(props) {
   getWordStore(props);
