@@ -27,7 +27,7 @@ export  function useUser({
 }
 
 export  function useScore(){
-  const { data, mutate } = useSWR("/api/game/scorelist");
+  const { data, mutate } = useSWR('/api/game/scorelist');
   const loading = !data;
   const scores = data && data.score
   return {

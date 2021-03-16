@@ -4,16 +4,15 @@ import ScoreList from 'src/components/scoreList';
 import GameOver from 'src/components/gameOver';
 import { postScore } from 'service/userApi';
 import {useScore} from 'data/useUser';
-
+import {mutate} from 'swr';
 
 function GameArea({isGameOver,finalScore,onGameover,clearState}){
     const [highScore, SetHighScore] = useState(0);
-    const { scores,mutate } =  useScore(); 
+    const { scores } =  useScore(); 
 
     useEffect(async() => {
         if(finalScore) {
-          await postScore('/api/game/postscore',finalScore);
-          mutate()
+          await mutate('/api/game/scorelist', postScore('/api/game/postscore',finalScore))
         }
         if (finalScore > highScore) {
             SetHighScore(finalScore)
