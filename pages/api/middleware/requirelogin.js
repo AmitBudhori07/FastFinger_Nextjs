@@ -5,6 +5,7 @@ import withSession from 'pages/api/db/session'
 const withProtect = (handler) => {
      return withSession((request, response) => {
         const { token } = request.session.get('user');
+        console.log(request.session.get('user'))
         if (!token) {
             response.status(403).json({ error: "you must be logged in" })
         }
