@@ -22,8 +22,8 @@ const Nav = ({title}) => {
               <li>
               <Link href='/'>
             <a className="btn btn-danger" onClick={async() => {
-                    const res=await fetchJson('/api/logout')
-                    await mutateUser(res)
+                    await mutateUser(fetchJson('/api/logout'));
+                    router.push('/')  
             }}
             >Logout</a>
         </Link>
