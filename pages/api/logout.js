@@ -1,7 +1,7 @@
 import withSession from 'pages/api/db/session'
 
 export default withSession(async (req, res) => {
+  console.log("Destroying")
   req.session.destroy();
-/*   res.redirect('/');
- */   res.json({ isLoggedIn: false })
+  res.json({ isLoggedIn: false })
  })
