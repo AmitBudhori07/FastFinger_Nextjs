@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const db = require('../db');
 const jwt = require('jsonwebtoken');
 import withSession from 'pages/api/db/session'
