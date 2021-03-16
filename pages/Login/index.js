@@ -25,9 +25,9 @@ function Login() {
     });
     const router = useRouter()
 
-    useEffect(() => {
+/*     useEffect(() => {
         router.prefetch('/Game')
-      }, [])
+      }, []) */
 
     const onLoginSubmit = async (e) => {
         e.preventDefault();
