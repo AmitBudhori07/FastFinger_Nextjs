@@ -20,13 +20,12 @@ const Nav = ({title}) => {
           {user?.isLoggedIn && (
             <>
               <li>
-            <a className="btn btn-danger" onClick={async() => {
+            <button className="btn btn-danger" onClick={async() => {
                     await fetchJson('/api/logout');
-                    mutateUser({ isLoggedIn: false });
+                    await mutateUser({ isLoggedIn: false });
                     router.push('/')
-
             }}
-            >Logout</a>
+            >Logout</button>
               </li>
             </>
           )}
