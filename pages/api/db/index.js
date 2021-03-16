@@ -16,9 +16,9 @@ const port = `${process.env.DB_PORT}`; */
   idleTimeoutMillis: 30000
 }; */
 
+const connectionString = `${process.env.CONNECTION_URL}` 
 
-
-const pool = new Pool(`${process.env.CONNECTION_URL}`);
+const pool = new Pool({connectionString,});
  
 module.exports = {
   query: (text, params) => pool.query(text, params)
