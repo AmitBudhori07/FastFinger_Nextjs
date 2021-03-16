@@ -6,7 +6,7 @@ const host = `${process.env.DB_HOST}`;
 const database = `${process.env.DB_DB}`;
 const password = `${process.env.DB_PASS}`;
 const port = `${process.env.DB_PORT}`; */
-var config = {
+/* var config = {
   user: 'u5ysmxa3pesckqy7yci7',
   database: 'b7uwu0h7i8pszyogvvnh',
   password: 'RmiiVgQvbBOSh3ECJOYg',
@@ -14,9 +14,11 @@ var config = {
   port: 5432,
   max: 10,
   idleTimeoutMillis: 30000
-};
+}; */
 
-const pool = new Pool(config);
+
+
+const pool = new Pool(process.env.CONNECTION_URL);
  
 module.exports = {
   query: (text, params) => pool.query(text, params)
