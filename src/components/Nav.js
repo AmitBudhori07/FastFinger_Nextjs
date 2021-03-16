@@ -21,7 +21,7 @@ const Nav = ({title}) => {
             <>
               <li>
             <button className="btn btn-danger" onClick={async() => {
-                    const res = await fetchJson('/api/logout');
+                    const res = await fetchJson('/api/logout',{ method: "POST" });
                     console.log(res);
                     console.log(document.cookie);
                     await mutateUser({ isLoggedIn: false });
