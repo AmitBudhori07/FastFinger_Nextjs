@@ -16,7 +16,7 @@ const port = `${process.env.DB_PORT}`; */
   idleTimeoutMillis: 30000
 }; */
 
-const connectionString = `${process.env.CONNECTION_URL}` 
+const connectionString = process.env.CONNECTION_URL
 
 const pool = new Pool({connectionString,});
  
