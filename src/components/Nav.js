@@ -22,7 +22,9 @@ const Nav = ({title}) => {
               <li>
             <a className="btn btn-danger" onClick={async() => {
                     await fetchJson('/api/logout');
-                    await mutateUser({ isLoggedIn: false });
+                    mutateUser({ isLoggedIn: false });
+                    router.push('/')
+
             }}
             >Logout</a>
               </li>
