@@ -1,3 +1,4 @@
+console.log("HIfromsignup")
 const bcrypt = require('bcrypt');
 const db = require('../db');
 
