@@ -18,7 +18,7 @@ var config = {
 
 /* const connectionString = process.env.CONNECTION_URL
  */
-const pool = new Pool({config});
+const pool = new Pool(config);
  
 module.exports = {
   query: (text, params) => pool.query(text, params)
