@@ -19,7 +19,10 @@ function GameArea({isGameOver,finalScore,onGameover,clearState}){
           }
     }, [isGameOver])
 
-    if (scores==='undefined') return "Loading....";
+    if (scores==='undefined'){
+      <h1 style={{color:"red",position:"absolute",bottom:"20px",right:"20px"}}>Loading...</h1>
+    }
+    return "Loading....";
 
     return(
         <>

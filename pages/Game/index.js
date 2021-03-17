@@ -50,7 +50,7 @@ function Game(props) {
   };  
 
   if (!user || user.isLoggedIn === false) {
-    return <h1 style={{color:"red"}}>Loading</h1>
+         <h1 style={{color:"red",position:"absolute",bottom:"20px",right:"20px"}}>Loading...</h1>
  }
   return (
     <Layout title="Game">

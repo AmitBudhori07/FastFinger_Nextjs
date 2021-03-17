@@ -17,29 +17,9 @@ export const register = async ({ name, email, password }) => {
 };
 
 
-export const getScore = async (url) => {
-  var obj = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token'),
-    }
-  }
-  try {
-    const res = await fetchJson(url, obj);
-    return res
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 export const postScore = async (url, score) => {
   var obj = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token'),
-    },
     body: JSON.stringify({ score: score })
   }
 
@@ -58,8 +38,7 @@ export const getWords = async (url) => {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ',
     },
-/*     body: JSON.stringify({ score: score })
- */  }
+ }
 
   const data = await fetch(url, obj).then(r => r.json());
   console.log(data)
