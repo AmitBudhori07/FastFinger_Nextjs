@@ -19,7 +19,7 @@ function GameArea({isGameOver,finalScore,onGameover,clearState}){
           }
     }, [isGameOver])
 
-    if (scores==='undefined') return "Loading...";
+    if (scores==='undefined') return "Loading....";
 
     return(
         <>
