@@ -1,32 +1,34 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Timer from 'src/containers/timerUserInuput';
 import ScoreList from 'src/components/scoreList';
 import GameOver from 'src/components/gameOver';
 import { postScore } from 'service/userApi';
-import {useScore} from 'data/useUser';
-import {mutate} from 'swr';
+import { useScore } from 'data/useUser';
+import { mutate } from 'swr';
 
-function GameArea({isGameOver,finalScore,onGameover,clearState}){
-    const [highScore, SetHighScore] = useState(0);
-    const { scores } =  useScore(); 
+function GameArea({ isGameOver, finalScore, onGameover, clearState }) {
+  const [highScore, SetHighScore] = useState(0);
+  const { scores } = useScore();
 
-    useEffect(async() => {
-        if(finalScore) {
-          await mutate('/api/game/scorelist', postScore('/api/game/postscore',finalScore))
-        }
-        if (finalScore > highScore) {
-            SetHighScore(finalScore)
-          }
-    }, [isGameOver])
-
-    if (scores==='undefined'){
-      <h1 style={{color:"red",position:"absolute",bottom:"20px",right:"20px"}}>Loading...</h1>
+  useEffect(async () => {
+    if (finalScore) {
+      await mutate('/api/game/scorelist', postScore('/api/game/postscore', finalScore))
     }
-    return "Loading....";
+    if (finalScore > highScore) {
+      SetHighScore(finalScore)
+    }
+  }, [isGameOver])
 
-    return(
-        <>
-        <div className="row mt-5">
+  if (scores === 'undefined') {
+    return (
+      <>
+        <h1 style={{ color: "red", position: "absolute", bottom: "20px", right: "20px" }}>Loading...</h1>
+      </>)
+  }
+
+  return (
+    <>
+      <div className="row mt-5">
         <div className="col-md-3 mb-3">
           <div className="text-center">
             <div className="scores-box">
@@ -48,8 +50,8 @@ function GameArea({isGameOver,finalScore,onGameover,clearState}){
     border-radius: 10px;
     margin: auto;
   }`}</style>
-      </>
-    )
+    </>
+  )
 }
 
 export default GameArea;
