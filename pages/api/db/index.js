@@ -16,8 +16,8 @@ var config = {
   idleTimeoutMillis: 30000
 };
 
-const connectionString = process.env.CONNECTION_URL
-
+/* const connectionString = process.env.CONNECTION_URL
+ */
 const pool = new Pool({config});
  
 module.exports = {
