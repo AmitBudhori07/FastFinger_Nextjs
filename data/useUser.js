@@ -5,6 +5,7 @@ import useSWR, { mutate } from 'swr';
 export  function useUser({
   redirectTo = false,
   redirectIfFound = false,
+  level
 } = {}) {
   const { data: user, mutate: mutateUser } = useSWR('/api/user');
   const loading = !user;
@@ -19,7 +20,7 @@ export  function useUser({
       (redirectIfFound && user?.isLoggedIn)
     ) {
       localStorage.setItem('token',user.token)
-      Router.push(redirectTo)
+      level ? Router.push({pathname:redirectTo,query:{level:level}}):Router.push(redirectTo)
     }
   }, [user, redirectIfFound, redirectTo])
 
