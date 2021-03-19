@@ -17,14 +17,12 @@ export default withSession(async(request, response) => {
             }
             else {
                 const domatch = await bcrypt.compare(password, rows[0].password)
-                console.log(domatch)
                 if (domatch) {
                     const token = jwt.sign({ _id: rows[0].id }, `${process.env.JWT_SECRET}`);
                     const user = { isLoggedIn: true, token }
                     request.session.set('user', user)
                     await request.session.save()
-                     console.log(token)
-                     response.status(200).json({ token })
+                    response.status(200).json({ token })
                 }
                 else {
                     response.status(403).json({ error: "Invalid Username or Password" })
@@ -36,19 +34,3 @@ export default withSession(async(request, response) => {
             response.status(403).json({ error: "Invalid Username or Password" })
         }
     })
-
-    
-
-    /*      bcrypt.compare(password,res.rows[0].password)
-          .then((domatch)=>{
-            if(domatch){
-               const token = jwt.sign({_id:res.rows[0].id},JWT_SECRET);
-              return response.status(200).json({token})       
-            }
-            else{
-             return response.status(402).json({error:"Invalid Username or Password"})
-            }
-          })
-          .catch(err=>{
-            console.log(err);
-          }) */
