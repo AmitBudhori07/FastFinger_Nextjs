@@ -20,7 +20,7 @@ export default withSession(async(request, response) => {
                 const domatch = await bcrypt.compare(password, rows[0].password)
                 if (domatch) {
                     const token = jwt.sign({ _id: rows[0].id }, `${process.env.JWT_SECRET}`);
-                    const user = { isLoggedIn: true, token }
+                    const user = { isLoggedIn: true, token, rows}
                     request.session.set('user', user)
                     await request.session.save()
                     response.status(200).json({ token })
