@@ -1,7 +1,8 @@
 import withSession from 'pages/api/db/session'
 
 export default withSession(async (req, res) => {
-  const user = req.session.get('user')
+  const user = req.session.get('user');
+  console.log(user);
   if (user) {
     res.json({
       isLoggedIn: true,
