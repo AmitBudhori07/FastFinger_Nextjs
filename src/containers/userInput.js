@@ -37,7 +37,7 @@ function UserInput({setTime,setTimeForword}) {
    }, [])
 
    useEffect(() => {
-    router.push(`/Game?name=${name}&level=${difficulty.level}`, undefined, { shallow: true })
+    router.push(`/Game?level=${difficulty.level}`, undefined, { shallow: true })
 }, [difficulty.level])
 
 
