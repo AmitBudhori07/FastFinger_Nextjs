@@ -54,7 +54,7 @@ function Game(props) {
  }
   return (
     <Layout title="Game">
-     <GameHeader isGameOver={isGameOver} setFinalScore={setFinalScore}/>
+     <GameHeader user={user} isGameOver={isGameOver} setFinalScore={setFinalScore}/>
      <GameArea isGameOver={isGameOver} finalScore={finalScore} onGameover={onGameover} clearState={clearState}/>
     </Layout>
   );

@@ -2,12 +2,12 @@ import React,{useEffect,useState} from 'react';
 import Score from 'src/containers/score';
 
 
-function GameHeader({isGameOver,setFinalScore}) {
+function GameHeader({user:{name}={},isGameOver,setFinalScore}) {
        
-   const [user,setUser] = useState({name:'',level:''})
+   const [userLevel,setLevel] = useState('')
     useEffect(() => {
-        const { name, level } = {...localStorage};
-        setUser({name:name,level:level})
+        const { level } = {...localStorage};
+        setLevel(level)
     }, [])
     return (
         <>
@@ -15,11 +15,11 @@ function GameHeader({isGameOver,setFinalScore}) {
                 <div className="col-sm-9">
                     <h3 className="text text-heading">
                         <img className="icon-player" src="/person.png" alt="Player" width="40" height="40" />
-                        {user.name}</h3>
+                        {name}</h3>
                     <br />
                     <h3 className="text text-heading">
                         <img className="icon-player" src="/gamepad.png" alt="GamePad" width="40" height="40" />
-            LEVEL: {user.level}</h3>
+            LEVEL: {userLevel}</h3>
                 </div>
                 <div className="col-sm-3">
                     <h3 className="text text-heading">fast fingers</h3>
