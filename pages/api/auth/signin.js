@@ -16,6 +16,7 @@ export default withSession(async(request, response) => {
                 response.status(403).json({ error: "Invalid Username or Password" })
             }
             else {
+                console.log(rows)
                 const domatch = await bcrypt.compare(password, rows[0].password)
                 if (domatch) {
                     const token = jwt.sign({ _id: rows[0].id }, `${process.env.JWT_SECRET}`);
