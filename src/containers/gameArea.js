@@ -5,10 +5,12 @@ import GameOver from 'src/components/gameOver';
 import { postScore } from 'service/userApi';
 import { useScore } from 'data/useUser';
 import { mutate } from 'swr';
+import HighScore from 'src/components/highscore';
 
 function GameArea({ isGameOver, finalScore, onGameover, clearState }) {
   const [highScore, SetHighScore] = useState(0);
   const { scores } = useScore();
+  
 
   useEffect(async () => {
     if (finalScore) {
@@ -35,7 +37,8 @@ function GameArea({ isGameOver, finalScore, onGameover, clearState }) {
               <div className="mt-2">
                 <h5 className="text mb-2">SCORE BOARD</h5>
                 <hr />
-                {<ScoreList scorelist={scores ? scores : []} highScore={highScore} />}
+                {scores?<HighScore scorelist={scores}/>:null}
+                <ScoreList scorelist={scores ? scores : []} highScore={highScore} />
               </div>
             </div>
           </div>
