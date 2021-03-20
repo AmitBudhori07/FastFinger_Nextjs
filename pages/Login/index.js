@@ -41,7 +41,7 @@ function Login() {
                 })
             )
         } catch (err) {
-            console.error('An unexpected error happened:', err);
+            console.error('An unexpected error happened:', err.message);
             const error = { "error": "Invalid Email or password" }
             dispatch({ formErrors: error })
         }
