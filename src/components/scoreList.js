@@ -2,7 +2,7 @@ import React from 'react';
 import formatTime from 'src/constants/formatTime';
 
 function ScoreList({ scorelist}) {
-        const startIndex = Math.max(scorelist.length - 10, 0)
+        const startIndex = Math.max(scorelist.length - 8, 0)
         let scores = [...scorelist].slice(startIndex)
         scores = [...new Array(startIndex).fill(0),...scores]
         const scoresList = scores.map((score, i) => (
