@@ -36,9 +36,9 @@ function UserInput({setTime,setTimeForword}) {
         dispatch({difficulty:{level:level,factor:DifficultyFactor(level)},currentWord:word});
    }, [])
 
-/*    useEffect(() => {
+   useEffect(() => {
     router.push(`/Game?level=${difficulty.level}`, undefined, { shallow: true })
-}, [difficulty.level]) */
+}, [difficulty.level])
 
 
     return (
