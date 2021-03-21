@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fast Fingers
 
-## Getting Started
+ **Fast fingers** is a ultimate typing game which helps in your improving typing skills.
 
-First, run the development server:
+## Instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Players need to login to their account if they have otherwise create new account by clicking on sign Up button.
+2. Players are asked to select the difficulty level during sign-in that are Easy, Medium, Hard level.
+3. Start the game on `START GAME` button click.
+4. Player suppose to type a random word from the dictionary on the input box on the game Screen within the time frame.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- For `EASY` difficulty level, word length will be less than or equal to 4.
+- For `MEDIUM` difficulty level, word length will be between 5-8(noth numbers included).
+- For `HARD` difficulty level, word length will be greater than 8.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+5. As soon as the typed word matches the word shown on screen, it should we considered submitted (pressing "ENTER" button shall not be required to submit a word).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+6. A timer shall be shown on the screen for every word and the maximum time that an user is allowed to type a word will depend on the difficulty factor given by following formula :
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Timer value = (Number of letters in the word) / (Difficulty factor)
 
-## Learn More
+Initially the difficulty factor would be 1 if suppose player selected easy level and it will keep increasing as the player progresses in the game and the timer value is guaranteed to be greater than or equal to 2 seconds that means a player must get at least 2 seconds to type a word.
 
-To learn more about Next.js, take a look at the following resources:
+7. There are three levels in game: EASY, MEDIUM and HARD
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Difficulty factor for easy level: 1
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Difficulty factor for medium level: 1.5
 
-## Deploy on Vercel
+Difficulty factor for hard level: 2
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+8. Difficulty factor will be increased by 0.01 after every successful word attempt.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+9. Game level will be changed if difficulty factor crosses particular levels difficulty factor and will be reflected to player.
+10. Player can able to stop the game by clicking on `LOGOUT` button
+11. **Game score for the player is the total time player was able to remain in the game before game gets over either because his/her time runs out for a particular word or player Stops the game**.
+12. Previous games score for player is shown in the sidebar along with best score
+
+
+**Game Link -** https://fast-finger-nextjs-git-main-amitbudhori07.vercel.app/
+
+## Tech stack
+- Next JS, React JS
+- HTML, CSS, JavaScript
+- Bootstrap
+- Node JS
+- Express JS
+- SWR 
+- Postgres Database
