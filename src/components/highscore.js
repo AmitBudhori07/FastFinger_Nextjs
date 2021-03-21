@@ -3,12 +3,12 @@ import formatTime from 'src/constants/formatTime';
 
 function HighScore({scorelist}){
     const highscore = Math.max(...scorelist)
-    const highscoreIndex = scorelist.indexOf(highscore)+1
+    const highscoreIndex = scorelist.indexOf(highscore)
    return(
        <>
         <div>
             <p className="high-score-text">Personal Best</p>
-            <p className="high-score">{`Game ${highscoreIndex}: ${formatTime(highscore)}`}</p>
+            <p className="high-score">{`Game ${highscoreIndex+1}: ${formatTime(highscore)}`}</p>
       </div>
       <style jsx>{`
           .high-score-text{

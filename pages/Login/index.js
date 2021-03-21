@@ -45,7 +45,6 @@ function Login() {
             const error = { "error": "Invalid Email or password" }
             dispatch({ formErrors: error })
         }
-        localStorage.setItem('level', level);
     }
 
     if (loading) {
