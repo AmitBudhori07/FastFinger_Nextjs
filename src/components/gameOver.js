@@ -8,6 +8,7 @@ function GameOver({ finalScore, highScore, clearState }) {
             {headerElement.map((headers,Iindex)=>(
                 <h1 key={Iindex}>{headers}</h1>
             ))}
+            
             {finalScore === highScore ? (
                 <h3 className="text-white">New High Score!</h3>
             ) : null}

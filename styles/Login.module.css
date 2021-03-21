@@ -28,6 +28,11 @@
     border: none;
     outline: none;
 }
+
+.btn_start_game:active{
+    box-shadow: 3px 2px 22px 1px rgba(255, 99, 71, 1); 
+}
+
 .btn_start_game div{
     vertical-align: middle;
 }
